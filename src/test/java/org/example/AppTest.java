@@ -1,38 +1,76 @@
 package org.example;
 
+import domain.Student;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.Before;
+import repository.StudentXMLRepo;
+import service.Service;
+import validation.StudentValidator;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
+public class AppTest extends TestCase {
+
+    private Service service;
+    private StudentXMLRepo studentRepo;
+
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
-    {
-        super( testName );
+    public AppTest(String testName) {
+        super(testName);
     }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    public static Test suite() {
+        return new TestSuite(AppTest.class);
     }
 
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
-        assertTrue( true );
+    public void testApp() {
+        assertTrue(true);
+    }
+
+    public void setUp() {
+        studentRepo = new StudentXMLRepo("src/resources/Studenti2.xml");
+        StudentValidator studentValidator = new StudentValidator();
+        service = new Service(studentRepo, studentValidator, null, null, null, null);
+    }
+
+    public void testAddStudent_Success() {
+        Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
+
+        Student result = service.addStudent(student);
+
+        assertEquals(student, result);
+
+        service.deleteStudent(student.getID());
+    }
+
+    public void testAddStudent_Failure_ExistingStudent() {
+
+        Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
+
+        Student result;
+
+        result = service.addStudent(student);
+        assertEquals(student, result);
+
+        result = service.addStudent(student);
+        assertNull(result);
+
+        service.deleteStudent(student.getID());
     }
 }
