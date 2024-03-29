@@ -11,6 +11,7 @@ import validation.StudentValidator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple App.
@@ -39,16 +40,19 @@ public class AppTest extends TestCase {
     /**
      * Rigourous Test :-)
      */
+    @org.junit.Test
     public void testApp() {
         assertTrue(true);
     }
 
+    @Before
     public void setUp() {
         studentRepo = new StudentXMLRepo("src/resources/Studenti2.xml");
         StudentValidator studentValidator = new StudentValidator();
         service = new Service(studentRepo, studentValidator, null, null, null, null);
     }
 
+    @org.junit.Test
     public void testAddStudent_Success() {
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
 
@@ -59,8 +63,8 @@ public class AppTest extends TestCase {
         service.deleteStudent(student.getID());
     }
 
+    @org.junit.Test
     public void testAddStudent_Failure_ExistingStudent() {
-
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
 
         Student result;
