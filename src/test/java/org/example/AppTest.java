@@ -9,10 +9,6 @@ import repository.StudentXMLRepo;
 import service.Service;
 import validation.StudentValidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 /**
  * Unit test for simple App.
  */
