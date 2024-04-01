@@ -27,7 +27,7 @@ public class AppTest{
         service = new Service(studentRepo, studentValidator, null, null, null, null);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddStudent_Success() {
 
         Student result;
