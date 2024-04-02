@@ -1,9 +1,6 @@
 package org.example;
 
 import domain.Student;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repository.StudentXMLRepo;
@@ -15,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Unit test for simple App.
  */
-public class AppTest{
+class AppTest {
 
     private Service service;
     private StudentXMLRepo studentRepo;
@@ -28,7 +25,7 @@ public class AppTest{
     }
 
     @Test
-    public void testAddStudent_Success() {
+    void testAddStudent_Success() {
 
         Student result;
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
@@ -40,7 +37,7 @@ public class AppTest{
     }
 
     @Test
-    public void testAddStudent_Failure_ExistingStudent() {
+    void testAddStudent_Failure_ExistingStudent() {
 
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
 
