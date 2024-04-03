@@ -5,8 +5,6 @@ R
 "src/main/java/org/example/App.java,2/6/268b09d2a5cdab7d148f0ec91f7b3fb51601410d
 V
 &src/main/java/app/MainApplication.java,5/1/51006f026c2052697a3e966b4eedc7fab2e35f3d
-T
-$src/main/java/tests/StudentTest.java,3/2/32f3cc529950534d9ac0b4d34e7b5049edd94a37
 V
 &src/test/java/org/example/AppTest.java,4/3/438c56474209176629917f1aaaac4e1cf31f765e
 S
