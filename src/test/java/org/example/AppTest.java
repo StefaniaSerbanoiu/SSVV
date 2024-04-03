@@ -31,7 +31,7 @@ class AppTest {
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
 
         result = service.addStudent(student);
-        assertEquals(student, result);
+        assertEquals(student, null);
 
         service.deleteStudent("1");
     }
