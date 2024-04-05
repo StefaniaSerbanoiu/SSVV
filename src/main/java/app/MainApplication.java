@@ -20,9 +20,9 @@ public class MainApplication {
     public static void main(String[] args) {
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
-        String filenameStudent = "fisiere/Studenti.xml";
-        String filenameTema = "fisiere/Teme.xml";
-        String filenameNota = "fisiere/Note.xml";
+        String filenameStudent = "resources/Studenti.xml";
+        String filenameTema = "resources/Teme.xml";
+        String filenameNota = "resources/Note.xml";
 
        //StudentFileRepository studentFileRepository = new StudentFileRepository(filenameStudent);
         //TemaFileRepository temaFileRepository = new TemaFileRepository(filenameTema);

@@ -1,15 +1,18 @@
 package org.example;
 
 import domain.Student;
+import domain.Tema;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repository.StudentXMLRepo;
 import service.Service;
 import validation.StudentValidator;
+import validation.TemaValidator;
 import validation.ValidationException;
 
 import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AppTest {
@@ -172,4 +175,34 @@ class AppTest {
 
         service.deleteStudent("1");
     }
+
+    @Test
+    void testValidate_InvalidDeadline_Failure(){
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 15, 5);
+        assertThrows(ValidationException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testValidate_ValidDeadline_Success(){
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 14, 5);
+        Assertions.assertDoesNotThrow(() -> validator.validate(t));
+        assertEquals(t.getDeadline(), 14);
+    }
+
+    @Test
+    void testTemaDescriereNonEmpty_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema newTema = new Tema("1", "", 7, 6);
+        assertThrows(ValidationException.class, () -> validator.validate(newTema));
+    }
+
+    @Test
+    void testTemaDescriereNonEmpty_Success() {
+        TemaValidator validator = new TemaValidator();
+        Tema newTema = new Tema("1", "SomeDescription", 7, 6);  // Passing a non-empty Descriere
+        assertDoesNotThrow(() -> validator.validate(newTema));
+    }
+
 }
