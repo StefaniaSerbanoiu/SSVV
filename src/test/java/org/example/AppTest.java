@@ -205,4 +205,52 @@ class AppTest {
         assertDoesNotThrow(() -> validator.validate(newTema));
     }
 
+    @Test
+    void testTemaIDEmpty_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("", "test", 5, 5);
+        assertThrows(ValidationException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testTemaIDNull_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema(null, "test", 5, 5);
+        assertThrows(NullPointerException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testDeadlineLowerThanRange_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 0, 5);
+        assertThrows(ValidationException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testDeadlineHigherThanRange_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 15, 5);
+        assertThrows(ValidationException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testPrimireLowerThanRange_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 5, 0);
+        assertThrows(ValidationException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testPrimireHigherThanRange_Failure() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 5, 15);
+        assertThrows(ValidationException.class, () -> validator.validate(t));
+    }
+
+    @Test
+    void testValidTema_Success() {
+        TemaValidator validator = new TemaValidator();
+        Tema t = new Tema("123", "test", 5, 5);
+        assertDoesNotThrow(() -> validator.validate(t));
+    }
 }
