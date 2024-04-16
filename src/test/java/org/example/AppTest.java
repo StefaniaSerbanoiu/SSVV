@@ -216,7 +216,7 @@ class AppTest {
     void testTemaIDNull_Failure() {
         TemaValidator validator = new TemaValidator();
         Tema t = new Tema(null, "test", 5, 5);
-        assertThrows(NullPointerException.class, () -> validator.validate(t));
+        assertThrows(ValidationException.class, () -> validator.validate(t));
     }
 
     @Test
