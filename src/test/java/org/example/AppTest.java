@@ -302,4 +302,11 @@ class AppTest {
         notaDouble = service.addNota(nota, "good");
         assertEquals(nota.getNota(), notaDouble);
     }
+
+    @Test
+    void testIntegration_Success() {
+        testAddStudent2_Success();
+        testAddAssignment_Success();
+        testAddGrade_Success();
+    }
 }
