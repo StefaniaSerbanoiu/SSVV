@@ -1,5 +1,6 @@
 package org.example;
 
+import domain.Nota;
 import domain.Student;
 import domain.Tema;
 import org.junit.jupiter.api.Assertions;
@@ -10,6 +11,8 @@ import service.Service;
 import validation.StudentValidator;
 import validation.TemaValidator;
 import validation.ValidationException;
+
+import java.time.LocalDate;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -252,5 +255,30 @@ class AppTest {
         TemaValidator validator = new TemaValidator();
         Tema t = new Tema("123", "test", 5, 5);
         assertDoesNotThrow(() -> validator.validate(t));
+    }
+
+    @Test
+    void testAddStudent2_Success() {
+        Student result;
+        Student student = new Student("2", "Jane Doe", 123, "jane.doe@example.com");
+
+        result = service.addStudent(student);
+        assertEquals(student, result);
+    }
+
+    @Test
+    void testAddAssignment_Success() {
+        TemaValidator validator = new TemaValidator();
+        Tema newTema = new Tema("1", "prima tema", 7, 6);  // Passing a non-empty Descriere
+        assertDoesNotThrow(() -> validator.validate(newTema));
+    }
+
+    @Test
+    void testAddGrade_Success() {
+        Double notaDouble;
+        Nota nota = new Nota("1", "2", "1", 10, LocalDate.now());
+
+        notaDouble = service.addNota(nota, "good");
+        assertEquals(nota.getNota(), notaDouble);
     }
 }
