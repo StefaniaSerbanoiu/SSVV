@@ -54,7 +54,7 @@ public abstract class AbstractCrudRepository <ID, E extends HasID<ID>> implement
             this.elemente.put(entity.getID(), entity);
             return entity;
         }
-        else return null;
+        else return null; // if the entity already exists, it won't be added and null returned without other changes
 
     }
 

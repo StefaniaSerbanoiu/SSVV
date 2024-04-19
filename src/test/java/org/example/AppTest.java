@@ -6,11 +6,14 @@ import domain.Tema;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import repository.NotaXMLRepo;
 import repository.StudentXMLRepo;
+import repository.TemaXMLRepo;
 import service.Service;
 import validation.StudentValidator;
 import validation.TemaValidator;
 import validation.ValidationException;
+import validation.NotaValidator;
 
 import java.time.LocalDate;
 
@@ -22,12 +25,21 @@ class AppTest {
 
     private Service service;
     private StudentXMLRepo studentRepo;
+    private TemaXMLRepo temaXMLRepo;
+    private NotaXMLRepo notaXMLRepo;
+
 
     @BeforeEach
     public void setUp() {
         studentRepo = new StudentXMLRepo("src/resources/Studenti2.xml");
+        temaXMLRepo = new TemaXMLRepo("src/resources/Teme2.xml");
+        notaXMLRepo = new NotaXMLRepo("src/resources/Note2.xml");
+
         StudentValidator studentValidator = new StudentValidator();
-        service = new Service(studentRepo, studentValidator, null, null, null, null);
+        TemaValidator temaValidator = new TemaValidator();
+        NotaValidator notaValidator = new NotaValidator(studentRepo, temaXMLRepo);
+
+        service = new Service(studentRepo, studentValidator, temaXMLRepo, temaValidator, notaXMLRepo, notaValidator);
     }
 
     @Test
@@ -37,6 +49,7 @@ class AppTest {
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
 
         result = service.addStudent(student);
+
         assertEquals(student, result);
 
         service.deleteStudent("1");
@@ -264,6 +277,8 @@ class AppTest {
 
         result = service.addStudent(student);
         assertEquals(student, result);
+
+        service.deleteStudent("2");
     }
 
     @Test
@@ -276,7 +291,13 @@ class AppTest {
     @Test
     void testAddGrade_Success() {
         Double notaDouble;
-        Nota nota = new Nota("1", "2", "1", 10, LocalDate.now());
+        Student student = new Student("3", "Jane Doe", 123, "jane.doe@example.com");
+        service.addStudent(student);
+        Nota nota = new Nota("1", "3", "1", 10, LocalDate.now());
+        System.out.println(nota);
+
+
+
 
         notaDouble = service.addNota(nota, "good");
         assertEquals(nota.getNota(), notaDouble);
