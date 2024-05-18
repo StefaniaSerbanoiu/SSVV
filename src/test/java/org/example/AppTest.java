@@ -17,6 +17,7 @@ import validation.NotaValidator;
 
 import java.time.LocalDate;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,7 +45,6 @@ class AppTest {
 
     @Test
     void testAddStudent_Success() {
-
         Student result;
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
 
@@ -57,13 +57,10 @@ class AppTest {
 
     @Test
     void testAddStudent_Failure_ExistingStudent() {
-
         Student student = new Student("1", "John Doe", 123, "john.doe@example.com");
-
         Student result;
 
         result = service.findStudent("1");
-        System.out.println(result);
 
         result = service.addStudent(student); // Add the student once
         assertEquals(student, result);
@@ -294,10 +291,6 @@ class AppTest {
         Student student = new Student("3", "Jane Doe", 123, "jane.doe@example.com");
         service.addStudent(student);
         Nota nota = new Nota("1", "3", "1", 10, LocalDate.now());
-        System.out.println(nota);
-
-
-
 
         notaDouble = service.addNota(nota, "good");
         assertEquals(nota.getNota(), notaDouble);
@@ -308,5 +301,51 @@ class AppTest {
         testAddStudent2_Success();
         testAddAssignment_Success();
         testAddGrade_Success();
+    }
+
+    // A4 --> TH
+
+    @Test
+    void testAddStudent() {
+        Student result;
+        Student student2 = new Student("4", "Jack Doe", 200, "jack@doe.com");
+
+        result = service.addStudent(student2);
+        assertEquals(student2, result);
+
+        service.deleteStudent("4");
+    }
+
+    @Test
+    void testAddAssignment() {
+        TemaValidator validator = new TemaValidator();
+        Tema newTema = new Tema("4", "a4-ssvv", 12, 8);
+        assertDoesNotThrow(() -> validator.validate(newTema));
+    }
+
+    @Test
+    void testIntegrationAddAssignment() {
+        testAddStudent();
+        testAddAssignment();
+    }
+
+    @Test
+    void testAddGrade() {
+        Double notaDouble;
+        Student student = new Student("4", "Jack Doe", 200, "jack@doe.com");
+        service.addStudent(student);
+        Nota nota = new Nota("1", "4", "4", 9, LocalDate.now());
+
+        notaDouble = service.addNota(nota, "meh");
+        assertEquals(nota.getNota(), notaDouble);
+
+        service.deleteStudent("4");
+    }
+
+    @Test
+    void testIntegrationAddGrade() {
+        testAddStudent();
+        testAddAssignment();
+        testAddGrade();
     }
 }

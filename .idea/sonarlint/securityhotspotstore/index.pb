@@ -72,3 +72,9 @@ d
 ,src/main/java/repository/CrudRepository.java,d/7/d718cf7fe4b42a253b17caf2a6a5f2c90454231c
 =
 Studenti2.xml,1/7/176a0e3618bbbcaf048dc82530b1bcaab14a5862
+G
+src/resources/Note2.xml,2/a/2a22d94a3b69fd45a50f064bed74b7cb54ff05ce
+G
+src/resources/Teme2.xml,c/2/c29d42208048961375f6425d2d7bc9ed7c299d5f
+J
+src/resources/Jane Doe.txt,d/b/db485d1724ea99e9e431f16ee92b1004bba5ba8d

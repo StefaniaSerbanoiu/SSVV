@@ -5,4 +5,9 @@
         <deadline>2</deadline>
         <primire>1</primire>
     </nrTema>
+    <nrTema nrTema="4">
+        <descriere>a4-ssvv</descriere>
+        <deadline>12</deadline>
+        <primire>8</primire>
+    </nrTema>
 </inbox>

@@ -1,21 +1,20 @@
 
-P
-java:S2755s"3Disable access to external entities in XML parsing.(ò†ì8¶Á¿»î1
-U
-java:S2755."3Disable access to external entities in XML parsing.(ËíÕüÿÿÿÿ8¶Á¿»î1
-w	java:S125"<This block of commented-out lines of code should be removed.(£üÎšJ$4a1f1014-1166-4135-92fb-393a025b38ac
-„	java:S119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(Ñû‰¯J$b9857439-9f66-487f-ad6a-94e6fc2b84bd
-w	java:S125["<This block of commented-out lines of code should be removed.(’îáëJ$8b9d75c6-53c5-489c-b593-f2782f43a710
-}	java:S125‚"<This block of commented-out lines of code should be removed.(ÓÉê¡ıÿÿÿÿJ$37e82261-1a84-4e3b-8298-f4f6a05c05a8
-M
-java:S1128"+Remove this unused import 'domain.Student'.(¸óÏÖúÿÿÿÿ8ÊÁ¿»î1
-X
-java:S1128";Remove this unused import 'validation.ValidationException'.(ï´÷Ø8ÊÁ¿»î1
-@
-java:S1128"$Remove this unused import 'java.io'.(¬›ãD8ËÁ¿»î1
-Q
-java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ËÁ¿»î1
-`
-java:S1128">Remove this unused import 'javax.xml.parsers.DocumentBuilder'.(ƒ”¯¹ùÿÿÿÿ8ËÁ¿»î1
+v
+java:S2755t"3Disable access to external entities in XML parsing.(ò†ì8‚õ•§ï1J$2240a412-c3b3-4b6c-a621-9afeebe49094
+{
+java:S2755."3Disable access to external entities in XML parsing.(ËíÕüÿÿÿÿ8ƒõ•§ï1J$620d61aa-18d2-4f6f-9cb2-0d10f961e4d4
+~	java:S125"<This block of commented-out lines of code should be removed.(£üÎš8ƒõ•§ï1J$01ac1794-e593-4e3f-9f6a-485c9d38fe3c
+‹	java:S119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(Ñû‰¯8…õ•§ï1J$6e61dc42-fe7f-49f4-a845-b3e5a3cebb0a
+„	java:S125ƒ"<This block of commented-out lines of code should be removed.(ÓÉê¡ıÿÿÿÿ8–¼¶§ï1J$28bd855b-5244-453c-8087-0389450ebe7f
 s
-java:S1068"2Remove this unused "builderFactory" private field.(®ÊÇàÿÿÿÿÿJ$feadd55b-9264-4dd8-a172-f8e8e39adf1c
+java:S1128"+Remove this unused import 'domain.Student'.(¸óÏÖúÿÿÿÿ8ÿÍø¦ï1J$b7d849c0-ab71-46d8-ad0b-1e06c3832cfb
+~
+java:S1128";Remove this unused import 'validation.ValidationException'.(ï´÷Ø8ÿÍø¦ï1J$0867e4ac-24e6-4fbb-87d1-9cbdd1088f43
+f
+java:S1128"$Remove this unused import 'java.io'.(¬›ãD8õ•§ï1J$b1e9a7d1-ac3a-4e0c-8498-6cb0e725beec
+w
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8õ•§ï1J$6cf63ad2-ff37-4d19-9064-e6e27eae48a0
+†
+java:S1128">Remove this unused import 'javax.xml.parsers.DocumentBuilder'.(ƒ”¯¹ùÿÿÿÿ8õ•§ï1J$13add9f2-a2cf-4cf7-9f9a-4a6c3310d622
+z
+java:S1068"2Remove this unused "builderFactory" private field.(®ÊÇàÿÿÿÿÿ8‘õ•§ï1J$7d67c42f-c091-48aa-b8e8-9d79a45dd4c0
